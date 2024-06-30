@@ -1,0 +1,138 @@
+{
+    "top_level_element": {
+      "type": "string",
+      "min_occurs": 1,
+      "max_occurs": 1,
+      "description": "The type of use case.",
+      "conditional": true,
+      "value_list": [
+        {
+          "value": "UserRegistration",
+          "description": "Top-level element for registering a new user.",
+          "data_elements": {
+            "username": {
+              "type": "string",
+              "min_occurs": 1,
+              "max_occurs": 1,
+              "description": "The unique username for the user."
+            },
+            "password": {
+              "type": "string",
+              "min_occurs": 1,
+              "max_occurs": 1,
+              "description": "The password for the user account."
+            },
+            "email": {
+              "type": "string",
+              "min_occurs": 1,
+              "max_occurs": 1,
+              "description": "The email address of the user."
+            },
+            "phone_number": {
+              "type": "string",
+              "min_occurs": 0,
+              "max_occurs": 1,
+              "description": "The phone number of the user."
+            }
+          }
+        },
+        {
+          "value": "ProductOrder",
+          "description": "Top-level element for placing a product order.",
+          "data_elements": {
+            "order_id": {
+              "type": "string",
+              "min_occurs": 1,
+              "max_occurs": 1,
+              "description": "The unique identifier for the order."
+            },
+            "product_id": {
+              "type": "string",
+              "min_occurs": 1,
+              "max_occurs": 2,
+              "description": "The unique identifier for the product.",
+              "value_list": [
+                {
+                  "value": "",
+                  "description": "Choose a product"
+                },
+                {
+                  "value": "prod001",
+                  "description": "Basic Widget"
+                },
+                {
+                  "value": "prod002",
+                  "description": "Advanced Widget"
+                },
+                {
+                  "value": "prod003",
+                  "description": "Premium Widget"
+                },
+                {
+                  "value": "prod004",
+                  "description": "Ultimate Widget"
+                }
+              ]
+            },
+            "quantity": {
+              "type": "integer",
+              "min_occurs": 1,
+              "max_occurs": 1,
+              "description": "The quantity of the product ordered."
+            },
+            "delivery_date": {
+              "type": "string",
+              "format": "date",
+              "min_occurs": 0,
+              "max_occurs": 1,
+              "description": "The expected delivery date of the order."
+            },
+            "customer_type": {
+              "type": "string",
+              "min_occurs": 1,
+              "max_occurs": 1,
+              "description": "The type of customer placing the order.",
+              "conditional": true,
+              "value_list": [
+                {
+                  "value": "",
+                  "description": "Choose a value"
+                },
+                {
+                  "value": "individual",
+                  "description": "Individual Customer",
+                  "data_elements": {
+                    "individual_id": {
+                      "type": "string",
+                      "min_occurs": 1,
+                      "max_occurs": 1,
+                      "description": "The ID for the individual customer."
+                    }
+                  }
+                },
+                {
+                  "value": "business",
+                  "description": "Business Customer",
+                  "data_elements": {
+                    "business_id": {
+                      "type": "string",
+                      "min_occurs": 1,
+                      "max_occurs": 1,
+                      "description": "The ID for the business customer."
+                    },
+                    "tax_id": {
+                      "type": "string",
+                      "min_occurs": 1,
+                      "max_occurs": 1,
+                      "description": "The tax ID for the business."
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+  
